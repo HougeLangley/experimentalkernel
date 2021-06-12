@@ -38,7 +38,7 @@ HOMEPAGE="https://github.com/HougeLangley/customkernel"
 LICENSE+=" CDDL"
 SRC_URI="
 ${KERNEL_BASE_URI}/linux-5.12.tar.xz
-https://github.com/HougeLangley/customkernel/releases/download/v5.12-patch/patch-5.12.10-xanmod1-cacule.patch
+https://github.com/xanmod/linux/releases/download/5.12.10-xanmod1-cacule/patch-5.12.10-xanmod1-cacule.xz
 https://github.com/HougeLangley/customkernel/releases/download/v5.12-others/v1-cjktty.patch
 https://github.com/HougeLangley/customkernel/releases/download/v5.12-others/v1-uksm.patch
 ${GENPATCHES_URI}
@@ -47,9 +47,7 @@ KEYWORDS="~amd64"
 
 S="${WORKDIR}/linux-${PVR}-xanmod"
 
-PATCHES=( "${DISTDIR}/patch-5.12.10-xanmod1-cacule.patch"
-		"${DISTDIR}/v1-cjktty.patch"
-		"${DISTDIR}/v1-uksm.patch" )
+UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-5.12.10-xanmod1-cacule.xz ${DISTDIR}/v1-cjktty.patch ${DISTDIR}/v1-uksm.patch"
 
 K_EXTRAEINFO="For more info on xanmod-cacule-hybrid and details on how to report problems,
 	see: ${HOMEPAGE}."
