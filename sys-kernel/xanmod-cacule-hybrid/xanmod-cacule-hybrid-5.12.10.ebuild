@@ -26,8 +26,7 @@ DEPEND="app-arch/cpio
 dev-util/pahole
 dev-libs/libbpf
 "
-RDEPEND="
-!sys-kernel/xanmod-sources
+RDEPEND="!sys-kernel/xanmod-sources
 !sys-kernel/xanmod-hybrid
 "
 
