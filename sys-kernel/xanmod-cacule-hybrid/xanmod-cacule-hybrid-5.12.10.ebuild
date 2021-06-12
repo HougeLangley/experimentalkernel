@@ -31,7 +31,7 @@ RDEPEND="
 	!sys-kernel/xanmod-hybrid
 "
 
-inherit kernel-2 optfeature
+inherit kernel-2
 detect_version
 
 DESCRIPTION="Xanmod-Cacule patchset for main kernel tree"
