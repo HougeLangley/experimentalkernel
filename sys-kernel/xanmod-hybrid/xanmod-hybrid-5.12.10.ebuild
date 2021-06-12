@@ -27,8 +27,8 @@ dev-util/pahole
 dev-libs/libbpf
 "
 RDEPEND="
-	!sys-kernel/xanmod-sources
-	!sys-kernel/xanmod-cacule-hybrid
+!sys-kernel/xanmod-sources
+!sys-kernel/xanmod-cacule-hybrid
 "
 
 inherit kernel-2
@@ -38,36 +38,36 @@ DESCRIPTION="Xanmod, cjktty, uksm patchset for main kernel tree"
 HOMEPAGE="https://github.com/HougeLangley/customkernel"
 LICENSE+=" CDDL"
 SRC_URI="
-	${KERNEL_BASE_URI}/linux-5.12.tar.xz
-	https://github.com/HougeLangley/customkernel/releases/download/v5.12-patch/patch-5.12.10-xanmod1
-	https://github.com/HougeLangley/customkernel/releases/download/v5.12-others/v1-cjktty.patch
-	https://github.com/HougeLangley/customkernel/releases/download/v5.12-others/v1-uksm.patch
-	${GENPATCHES_URI}
+${KERNEL_BASE_URI}/linux-5.12.tar.xz
+https://github.com/HougeLangley/customkernel/releases/download/v5.12-patch/patch-5.12.10-xanmod1
+https://github.com/HougeLangley/customkernel/releases/download/v5.12-others/v1-cjktty.patch
+https://github.com/HougeLangley/customkernel/releases/download/v5.12-others/v1-uksm.patch
+${GENPATCHES_URI}
 "
 KEYWORDS="~amd64"
 
 S="${WORKDIR}/linux-${PVR}-xanmod-hybrid"
 
 PATCHES=( "${DISTDIR}/patch-5.12.10-xanmod1"
-	"${DISTDIR}/v1-cjktty.patch"
-	"${DISTDIR}/v1-uksm.patch" )
+		"${DISTDIR}/v1-cjktty.patch"
+		"${DISTDIR}/v1-uksm.patch" )
 
 K_EXTRAEINFO="For more info on xanmod-hybrid and details on how to report problems,
 	see: ${HOMEPAGE}."
 
-pkg_setup() {
-	ewarn ""
-	ewarn "${PN} is *not* supported by the Gentoo Kernel Project in any way."
-	ewarn "If you need support, please contact the ${HOMEPAGE} directly."
-	ewarn "Do *not* open bugs in Gentoo's bugzilla unless you have issues with"
-	ewarn "the ebuilds. Thank you."
-	ewarn ""
+	pkg_setup() {
+		ewarn ""
+			ewarn "${PN} is *not* supported by the Gentoo Kernel Project in any way."
+			ewarn "If you need support, please contact the ${HOMEPAGE} directly."
+			ewarn "Do *not* open bugs in Gentoo's bugzilla unless you have issues with"
+			ewarn "the ebuilds. Thank you."
+			ewarn ""
 
-	kernel-2_pkg_setup
-}
+			kernel-2_pkg_setup
+	}
 
 pkg_postinst() {
 	elog "MICROCODES"
-	elog "Use xanmod-sources with microcodes"
-	elog "Read https://wiki.gentoo.org/wiki/Intel_microcode"
+		elog "Use xanmod-sources with microcodes"
+		elog "Read https://wiki.gentoo.org/wiki/Intel_microcode"
 }
