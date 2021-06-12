@@ -46,7 +46,7 @@ ${GENPATCHES_URI}
 "
 KEYWORDS="~amd64"
 
-S="${WORKDIR}/linux-${PVR}-xanmod-hybrid"
+S="${WORKDIR}/linux-${PVR}-xanmod"
 
 PATCHES=( "${DISTDIR}/patch-5.12.10-xanmod1"
 		"${DISTDIR}/v1-cjktty.patch"
