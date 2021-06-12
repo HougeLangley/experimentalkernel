@@ -34,7 +34,7 @@ RDEPEND="
 inherit kernel-2
 detect_version
 
-DESCRIPTION="Xanmod-Cacule patchset for main kernel tree"
+DESCRIPTION="Xanmod-Cacule, cjktty, uksm patchset for main kernel tree"
 HOMEPAGE="https://github.com/HougeLangley/customkernel"
 LICENSE+=" CDDL"
 SRC_URI="
