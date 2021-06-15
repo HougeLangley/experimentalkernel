@@ -70,6 +70,24 @@ PATCHES=( "${DISTDIR}/0001-mm-Support-soft-dirty-flag-reset-for-VA-range.patch"
 
 K_EXTRAEINFO="For more info on linux-tkg-bmq-sources and details on how to report problems, see: ${HOMEPAGE}."
 
+src_prepare() {
+	# Default apply Linux-Tkg BMQ patches
+	eapply "${DISTDIR}/0001-mm-Support-soft-dirty-flag-reset-for-VA-range.patch"
+	eapply "${DISTDIR}/0002-clear-patches.patch"
+	eapply "${DISTDIR}/0003-glitched-base.patch"
+	eapply "${DISTDIR}/0006-add-acs-overrides_iommu.patch"
+	eapply "${DISTDIR}/0007-v5.12-fsync.patch"
+	eapply "${DISTDIR}/0007-v5.12-futex2_interface.patch"
+	eapply "${DISTDIR}/0007-v5.12-winesync.patch"
+	eapply "${DISTDIR}/0009-glitched-ondemand-bmq.patch"
+	eapply "${DISTDIR}/0009-glitched-bmq.patch"
+	eapply "${DISTDIR}/0009-prjc_v5.12-r1.patch"
+	eapply "${DISTDIR}/v1-cjktty.patch"
+	eapply "${DISTDIR}/v1-uksm.patch"
+
+	kernel-2_src_prepare
+}
+
 pkg_setup() {
 	ewarn ""
 	ewarn "${PN} is *not* supported by the Gentoo Kernel Project in any way."
@@ -79,11 +97,6 @@ pkg_setup() {
 	ewarn ""
 
 	kernel-2_pkg_setup
-}
-
-src_prepare() {
-	# Default apply Linux-Tkg BMQ patches
-	kernel-2_src_prepare
 }
 
 pkg_postinst() {
