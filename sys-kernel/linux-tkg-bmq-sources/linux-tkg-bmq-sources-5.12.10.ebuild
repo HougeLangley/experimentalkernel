@@ -33,8 +33,7 @@ DESCRIPTION="Linux-TkG, BMQ, cjktty, uksm patchset for main kernel tree"
 HOMEPAGE="https://github.com/Frogging-Family/linux-tkg"
 LICENSE+=" CDDL"
 SRC_URI="
-${KERNEL_BASE_URI}/linux-5.12.tar.xz
-${KERNEL_BASE_URI}/patch-5.12.10.xz
+${KERNEL_BASE_URI}/linux-5.12.10.tar.xz
 ${GENPATCHES_URI}
 https://raw.githubusercontent.com/Frogging-Family/linux-tkg/master/linux-tkg-patches/5.12/0001-mm-Support-soft-dirty-flag-reset-for-VA-range.patch
 https://raw.githubusercontent.com/Frogging-Family/linux-tkg/master/linux-tkg-patches/5.12/0002-clear-patches.patch
@@ -52,8 +51,6 @@ https://github.com/HougeLangley/customkernel/releases/download/v5.12-others/v1-u
 KEYWORDS="~amd64"
 
 S="${WORKDIR}/linux-5.12.10-linux"
-
-UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-5.12.10.xz"
 
 UNIPATCH_STRICTORDER=( "${DISTDIR}/0001-mm-Support-soft-dirty-flag-reset-for-VA-range.patch"
 "${DISTDIR}/0002-clear-patches.patch"
