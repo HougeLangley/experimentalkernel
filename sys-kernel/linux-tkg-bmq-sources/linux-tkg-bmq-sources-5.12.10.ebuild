@@ -33,7 +33,8 @@ DESCRIPTION="Linux-TkG, BMQ, cjktty, uksm patchset for main kernel tree"
 HOMEPAGE="https://github.com/Frogging-Family/linux-tkg"
 LICENSE+=" CDDL"
 SRC_URI="
-${KERNEL_BASE_URI}/linux-5.12.10.tar.xz
+${KERNEL_BASE_URI}/linux-5.12.tar.xz
+${KERNEL_BASE_URI}/patch-5.12.10.xz
 ${GENPATCHES_URI}
 https://raw.githubusercontent.com/Frogging-Family/linux-tkg/master/linux-tkg-patches/5.12/0001-mm-Support-soft-dirty-flag-reset-for-VA-range.patch
 https://raw.githubusercontent.com/Frogging-Family/linux-tkg/master/linux-tkg-patches/5.12/0002-clear-patches.patch
@@ -52,7 +53,9 @@ KEYWORDS="~amd64"
 
 S="${WORKDIR}/linux-5.12.10-linux"
 
-UNIPATCH_STRICTORDER=( "${DISTDIR}/0001-mm-Support-soft-dirty-flag-reset-for-VA-range.patch"
+UNIPATCH_LIST_DEFAULT=( "${DISTDIR}/patch-5.12.10.xz" )
+
+PATCHES=( "${DISTDIR}/0001-mm-Support-soft-dirty-flag-reset-for-VA-range.patch"
 "${DISTDIR}/0002-clear-patches.patch"
 "${DISTDIR}/0003-glitched-base.patch"
 "${DISTDIR}/0006-add-acs-overrides_iommu.patch"
@@ -76,6 +79,11 @@ pkg_setup() {
 	ewarn ""
 
 	kernel-2_pkg_setup
+}
+
+src_prepare() {
+	# Default apply Linux-Tkg BMQ patches
+	kernel-2_src_prepare
 }
 
 pkg_postinst() {
