@@ -35,8 +35,10 @@ LICENSE+=" CDDL"
 SRC_URI="
 ${KERNEL_BASE_URI}/linux-5.12.tar.xz
 ${KERNEL_BASE_URI}/patch-5.12.10.xz
+${GENPATCHES_URI}
+https://raw.githubusercontent.com/Frogging-Family/linux-tkg/master/linux-tkg-patches/5.12/0001-mm-Support-soft-dirty-flag-reset-for-VA-range.patch
 https://raw.githubusercontent.com/Frogging-Family/linux-tkg/master/linux-tkg-patches/5.12/0002-clear-patches.patch
-https://github.com/HougeLangley/customkernel/releases/download/v5.12-others/0003-glitched-base.patch
+https://raw.githubusercontent.com/Frogging-Family/linux-tkg/master/linux-tkg-patches/5.12/0003-glitched-base.patch
 https://raw.githubusercontent.com/Frogging-Family/linux-tkg/master/linux-tkg-patches/5.12/0006-add-acs-overrides_iommu.patch
 https://raw.githubusercontent.com/Frogging-Family/linux-tkg/master/linux-tkg-patches/5.12/0007-v5.12-fsync.patch
 https://raw.githubusercontent.com/Frogging-Family/linux-tkg/master/linux-tkg-patches/5.12/0007-v5.12-futex2_interface.patch
@@ -46,13 +48,25 @@ https://raw.githubusercontent.com/Frogging-Family/linux-tkg/master/linux-tkg-pat
 https://raw.githubusercontent.com/Frogging-Family/linux-tkg/master/linux-tkg-patches/5.12/0009-prjc_v5.12-r1.patch
 https://github.com/HougeLangley/customkernel/releases/download/v5.12-others/v1-cjktty.patch
 https://github.com/HougeLangley/customkernel/releases/download/v5.12-others/v1-uksm.patch
-${GENPATCHES_URI}
 "
 KEYWORDS="~amd64"
 
 S="${WORKDIR}/linux-5.12.10-linux"
 
-UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-5.12.10.xz ${DISTDIR}/0002-clear-patches.patch ${DISTDIR}/0003-glitched-base.patch ${DISTDIR}/0006-add-acs-overrides_iommu.patch ${DISTDIR}/0007-v5.12-fsync.patch ${DISTDIR}/0007-v5.12-futex2_interface.patch ${DISTDIR}/0007-v5.12-winesync.patch ${DISTDIR}/0009-glitched-ondemand-bmq.patch ${DISTDIR}/0009-glitched-bmq.patch ${DISTDIR}/0009-prjc_v5.12-r1.patch ${DISTDIR}/v1-cjktty.patch ${DISTDIR}/v1-uksm.patch"
+UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-5.12.10.xz"
+
+PATCHES=( "${DISTDIR}/0001-mm-Support-soft-dirty-flag-reset-for-VA-range.patch"
+	"${DISTDIR}/0002-clear-patches.patch"
+	"${DISTDIR}/0003-glitched-base.patch"
+	"${DISTDIR}/0006-add-acs-overrides_iommu.patch"
+	"${DISTDIR}/0007-v5.12-fsync.patch"
+	"${DISTDIR}/0007-v5.12-futex2_interface.patch"
+	"${DISTDIR}/0007-v5.12-winesync.patch"
+	"${DISTDIR}/0009-glitched-ondemand-bmq.patch"
+	"${DISTDIR}/0009-glitched-bmq.patch"
+	"${DISTDIR}/0009-prjc_v5.12-r1.patch"
+	"${DISTDIR}/v1-cjktty.patch"
+	"${DISTDIR}/v1-uksm.patch" )
 
 K_EXTRAEINFO="For more info on linux-tkg-bmq-sources and details on how to report problems, see: ${HOMEPAGE}."
 
