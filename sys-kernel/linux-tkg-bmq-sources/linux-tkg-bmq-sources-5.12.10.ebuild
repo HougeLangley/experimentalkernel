@@ -55,18 +55,18 @@ S="${WORKDIR}/linux-5.12.10-linux"
 
 UNIPATCH_LIST_DEFAULT="${DISTDIR}/patch-5.12.10.xz"
 
-PATCHES=( "${DISTDIR}/0001-mm-Support-soft-dirty-flag-reset-for-VA-range.patch"
-	"${DISTDIR}/0002-clear-patches.patch"
-	"${DISTDIR}/0003-glitched-base.patch"
-	"${DISTDIR}/0006-add-acs-overrides_iommu.patch"
-	"${DISTDIR}/0007-v5.12-fsync.patch"
-	"${DISTDIR}/0007-v5.12-futex2_interface.patch"
-	"${DISTDIR}/0007-v5.12-winesync.patch"
-	"${DISTDIR}/0009-glitched-ondemand-bmq.patch"
-	"${DISTDIR}/0009-glitched-bmq.patch"
-	"${DISTDIR}/0009-prjc_v5.12-r1.patch"
-	"${DISTDIR}/v1-cjktty.patch"
-	"${DISTDIR}/v1-uksm.patch" )
+UNIPATCH_STRICTORDER=( "${DISTDIR}/0001-mm-Support-soft-dirty-flag-reset-for-VA-range.patch"
+"${DISTDIR}/0002-clear-patches.patch"
+"${DISTDIR}/0003-glitched-base.patch"
+"${DISTDIR}/0006-add-acs-overrides_iommu.patch"
+"${DISTDIR}/0007-v5.12-fsync.patch"
+"${DISTDIR}/0007-v5.12-futex2_interface.patch"
+"${DISTDIR}/0007-v5.12-winesync.patch"
+"${DISTDIR}/0009-glitched-ondemand-bmq.patch"
+"${DISTDIR}/0009-glitched-bmq.patch"
+"${DISTDIR}/0009-prjc_v5.12-r1.patch"
+"${DISTDIR}/v1-cjktty.patch"
+"${DISTDIR}/v1-uksm.patch" )
 
 K_EXTRAEINFO="For more info on linux-tkg-bmq-sources and details on how to report problems, see: ${HOMEPAGE}."
 
